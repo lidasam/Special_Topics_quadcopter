@@ -50,7 +50,7 @@ P 太小無法穩定姿態會有滑溜感不易控制，P 太大會高速往復�
 I 太小無法保持姿態，I 太大會慢速往復震動。
 
 D 太小則修正太直接不滑順，D太大則操控會延遲。
-(MATLAB PID CODE)
+([MATLAB PID CODE](https://github.com/syokujinau/Special_Topics_quadcopter/blob/master/experiment/PID.m))
 
 ----------
 ### Q:慣性測量單元(IMU)預計選用
