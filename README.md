@@ -71,15 +71,15 @@ Barometer | 氣壓定高
 
 ### 影響穩定性的因素
  
-> **[MWC Wiki:](http://www.multiwii.com/wiki/?title=PID#PID_:_Roll.2C_Pitch.2C_Yaw)** Other factors affecting PID
+> - **[MWC Wiki:](http://www.multiwii.com/wiki/?title=PID#PID_:_Roll.2C_Pitch.2C_Yaw)** Other factors affecting PID
 Taking known good PID values from an identical configuration will get you close, but bear in mind no two MultiRotors will have the same flying characteristics and the following items will have an impact on actual PID values:
-Frame weight /size / material / stiffness
-Motors - power / torque /momentum
-Position - Motor-->motor distance
-ESC / TX - power curves
-Prop - diameter / pitch / material
-Balancing
-Pilot skills
+> - Frame weight /size / material / stiffness
+> - Motors - power / torque /momentum
+> - Position - Motor-->motor distance
+> - ESC / TX - power curves
+> - Prop - diameter / pitch / material
+> - Balancing
+> - Pilot skills
 
 
 
