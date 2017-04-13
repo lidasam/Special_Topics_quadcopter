@@ -26,19 +26,25 @@ Item     | Value
 接收器|
 地面站|
 
+===================
+
 ### Q:飛行原理
 四軸的馬達配置，順逆時針各2個根據角動量守恆互相抵銷產生的力矩，保持yaw的角度，平衡使用PID回授控制器來穩定機身平衡。
 
 ![enter image description here](https://www.grc.nasa.gov/www/k-12/airplane/Images/rotations.gif)
 
+===================
+
 ### Q:控制器演算法
 ![enter image description here](https://i1.wp.com/coder-tronics.com/wp-content/uploads/2014/05/PID-Block-dia1.png)
+
+===================
 
 ### Q:飛行姿態運算
 由於控制器演算法涉及現代控制、線性代數的狀態方程式等等領域，在轉為韌體方面尚無法實作，故想選用RC領域熱門的開源韌體作為控制核心，例如:MultiWii(8bit)、CleanFlight(32Bit)。
 
 
-
+===================
 
 
 ### Q:PID參數調整:
@@ -50,6 +56,8 @@ I 太小無法保持姿態，I 太大會慢速往復震動。
 D 太小則修正太直接不滑順，D太大則操控會延遲。
 (MATLAB PID CODE)
 
+===================
+
 ### Q:慣性測量單元(IMU)預計選用
 
 item | 自由度
@@ -60,6 +68,8 @@ Magnetometer | 定向
 Barometer | 氣壓定高
 自由度代表PID控制可用的輸入參考量，越多則使機身穩定能力越高
 
+===================
+
 ### Q:遙控器、接收訊號
 
 > #### RC RADIO RECEIVER PROTOCOLS: 
@@ -67,7 +77,7 @@ Barometer | 氣壓定高
 
 欲使用常見的PWM (4通道Throttle/Aileron  Elevator/Rudder，2通道飛行模式切換)
 
-
+===================
 
 ### 影響穩定性的因素
  
@@ -83,7 +93,7 @@ Taking known good PID values from an identical configuration will get you close,
 
 
 
-
+===================
 
 
 #### <i class="icon-file"></i> 進度
