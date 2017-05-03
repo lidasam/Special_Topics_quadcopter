@@ -164,6 +164,7 @@ root@mylinkit:~/test720/www# ls
 index.html
 ```
 安裝express模組後執行main.js，並且用手機訪問該server的於區網中的位址
+
 ![enter image description here](http://i.imgur.com/gkuIYun.png)
 
 
