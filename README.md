@@ -103,6 +103,70 @@ Taking known good PID values from an identical configuration will get you close,
 > ![enter image description here](https://walkera-fans.de/wp-content/uploads/2015/06/Walkera-Runner-250-MultiWii-1.png)
 
 
+----------
+###**感測器數據整合介面**
+考慮穩定性以及網頁資源的容量，決定使用node.js作為開發語言來架設整合感測器資料的http server。
+> Node.js v7.10.0 Documentation 
+> https://nodejs.org/api/http.html
+
+使用express模組來增加檔案存取的便利性，如以下範例code
+```
+var express = require('express');
+var app = express();
+
+app.get('/', function (req, res) {
+  res.send('Hello World!');
+});
+
+app.listen(3000);
+```
+express提供方便的api來幫助撰寫nodejs
+> Refernce :http://expressjs.com/en/4x/api.html
+
+###Q:架設網頁伺服器之環境
+使用Linux環境，考量價格與開發板體積，也沒有使用圖形化介面的需求，排除較熱門的Raspberry Pi系列的SoC開發板，選用LinkIt Smart 7688來架設伺服器，使用的作業系統是OpenWrt
+![enter image description here](http://i.imgur.com/Vl19Fx9.png)
+
+**以下測試express基本的架設方式**
+```
+opkg update
+npm install express
+```
+再用編輯器新增以下nodejs程式
+```
+// main.js
+var express = require("express");
+var app = express();
+
+app.get("/", function(req, res) {
+  res.sendFile(__dirname + "/www/index.html");
+});
+
+app.get("/Lab720", function(req, res) {
+  res.redirect("http://ares.ee.nchu.edu.tw/");
+});
+
+app.get("*", function(req, res) {
+  res.status(404);
+  res.send("Not Found");
+});
+
+app.listen(8080, function(req, res) {
+  console.log("server on port 8080");
+});
+```
+接著根據所需資源安排檔案路徑
+```
+root@mylinkit:~/test720# ls
+main.js  www
+root@mylinkit:~/test720# cd www
+root@mylinkit:~/test720/www# ls
+index.html
+```
+安裝express模組後執行main.js，並且用手機訪問該server的於區網中的位址
+![enter image description here](http://i.imgur.com/oA2MVuw.jpg)
+
+
 
 
 
