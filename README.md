@@ -123,7 +123,7 @@ app.listen(3000);
 express提供方便的api來幫助撰寫nodejs
 > Refernce :http://expressjs.com/en/4x/api.html
 
-###Q:架設網頁伺服器之環境
+### Q:架設網頁伺服器之環境
 使用Linux環境，考量價格與開發板體積，也沒有使用圖形化介面的需求，排除較熱門的Raspberry Pi系列的SoC開發板，選用LinkIt Smart 7688來架設伺服器，使用的作業系統是OpenWrt
 ![enter image description here](http://i.imgur.com/Vl19Fx9.png)
 
@@ -163,7 +163,7 @@ root@mylinkit:~/test720# cd www
 root@mylinkit:~/test720/www# ls
 index.html
 ```
-安裝express模組後執行main.js，並且用手機訪問該server的於區網中的位址
+安裝express模組後執行main.js，並且訪問該server的於區網中的位址
 
 ![enter image description here](http://i.imgur.com/gkuIYun.png)
 
