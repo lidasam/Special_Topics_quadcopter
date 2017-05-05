@@ -1,4 +1,4 @@
-﻿無人機專題
+無人機專題
 ===================
 
 
@@ -167,8 +167,39 @@ index.html
 
 ![enter image description here](http://i.imgur.com/gkuIYun.png)
 
+-------------
+### TI sensortag cc2650感測器
+![enter image description here](http://43oh.com/wp-content/uploads/2015/06/CC2560_Sensortag-1024x706.jpg)
+備有感溫、IR測溫、濕度、測光、9軸陀螺儀等感測功能
+由藍芽連接至行動裝置進行數據監控，可將資料上傳至雲端多方監控。
+Android app使用 TI提供之
+![enter image description here](http://i.imgur.com/O8ft5j2.jpg)
+![enter image description here](http://i.imgur.com/lAxuxFD.jpg)
+#### 雲端監控方式
+IBM Watson IoT Quick Start-至 https://quickstart.internetofthings.ibmcloud.com/
+確認裝置ID後可直接瀏覽即時數據
+Dweet.io-使用簡易IoT平台並可直接分享
+設定
+> - Key
+> - lock
+> - Thing
 
+後由URL方式傳送要求:"https://dweet.io/get/latest/dweet/for/88888112"
+系統將回傳值
+```
+{"this":"succeeded",
+"by":"getting",
+"the":"dweets",
+"with":[{"thing":"88888112",
+"created":"2017-05-05T08:25:37.621Z",
+"content":{"gyro_x":-0.28,"compass_y":16.5,"humidity":51.22,"acc_y":-0.16,"object_temp":28.28,"acc_x":0.13,"light":2.96,"gyro_z":-1.24,"compass_x":-89.5,"ambient_temp":33.81,"air_pressure":896.2,"gyro_y":-4.04,"compass_z":-197,"acc_z":-0.97}}]}
+```
+接受來自任何時間任何地方的JSON格式文字資訊的傳入
+可視化可使用:"https://dweet.io/follow/88888112"
+![enter image description here](http://i.imgur.com/VDR0lB3.png)
+([詳細script](https://github.com/Sensortagcc2650/stag1.js))([script2](https://github.com/Sensortagcc2650/stag2))
 
-
-
-
+特別注意
+> - 因直接與平台傳送訊息，資訊並無任何保護
+> - 平台提供storage等提取功能，Alert功能需付費
+> - 保留近500則資料24小時之後便自動清除
