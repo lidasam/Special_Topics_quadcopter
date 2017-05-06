@@ -1,4 +1,4 @@
-無人機專題
+﻿無人機專題
 ===================
 
 
@@ -173,8 +173,10 @@ index.html
 備有感溫、IR測溫、濕度、測光、9軸陀螺儀等感測功能
 由藍芽連接至行動裝置進行數據監控，可將資料上傳至雲端多方監控。
 Android app使用 TI提供之
-![enter image description here](http://i.imgur.com/O8ft5j2.jpg)
+ ![](http://i.imgur.com/O8ft5j2.jpg)
 ![enter image description here](http://i.imgur.com/lAxuxFD.jpg)
+可調整回傳頻週期
+![Imgur](http://i.imgur.com/Oiu5Y1w.jpg)
 #### 雲端監控方式
 IBM Watson IoT Quick Start-至 https://quickstart.internetofthings.ibmcloud.com/
 確認裝置ID後可直接瀏覽即時數據
@@ -203,3 +205,21 @@ Dweet.io-使用簡易IoT平台並可直接分享
 > - 因直接與平台傳送訊息，資訊並無任何保護
 > - 平台提供storage等提取功能，Alert功能需付費
 > - 保留近500則資料24小時之後便自動清除
+
+### 編寫(連接devpack)
+使用[TI CCS](https://dev.ti.com)或 Energia
+
+Stack
+![](http://i.imgur.com/llUxtHk.png)
+[Example](https://github.com/sivenvy/Sensortagcc2650/tree/master/sensortag)
+
+
+##### 現版本APP問題
+現行安裝測試的手機APP版本與功能和參考資料的不太相符，遇到幾個問題:
+APP
+> - 藍芽搜尋欲二次連接時裝置不易配對，跳出監控業面欲重複進入時常找不到裝置:需關閉APP及感測器一陣子重新連接
+> - OAD Service無法使用，無法檢測當前版本 [圖片](http://i.imgur.com/ijLPbOy.jpg)
+> - 無部分編輯及監測應用功能(單數據詳細、3D模擬)
+
+其他
+> - dev.ti中Resource Explorer內sensortag CC2650資料已移除:可由網站下載相關資料
