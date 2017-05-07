@@ -174,12 +174,14 @@ index.html
 <img src="http://43oh.com/wp-content/uploads/2015/06/CC2560_Sensortag-1024x706.jpg" height="360" /> <br>
 
 備有感溫、IR測溫、濕度、測光、9軸陀螺儀等感測功能
-由藍芽連接至行動裝置進行數據監控，可將資料上傳至雲端多方監控。
-Android app使用 TI提供之
+由藍芽連接至行動裝置進行數據監控，可將資料上傳至雲端多方監控。Android app使用 TI提供之
+
 <br><img src="http://i.imgur.com/O8ft5j2.jpg" height="450" /> 
+
 <br><img src="http://i.imgur.com/lAxuxFD.jpg" height="450" /> 
 
 可調整回傳頻週期
+
 <br><img src="http://i.imgur.com/Oiu5Y1w.jpg" height="450" /> 
 
 #### 雲端監控方式
