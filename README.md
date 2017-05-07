@@ -178,8 +178,10 @@ index.html
 Android app使用 TI提供之
 <img src="http://i.imgur.com/O8ft5j2.jpg" height="450" /> <br>
 <img src="http://i.imgur.com/lAxuxFD.jpg" height="450" />
+
 可調整回傳頻週期
 <img src="http://i.imgur.com/Oiu5Y1w.jpg" height="450" />
+
 #### 雲端監控方式
 IBM Watson IoT Quick Start-至 https://quickstart.internetofthings.ibmcloud.com/
 確認裝置ID後可直接瀏覽即時數據
