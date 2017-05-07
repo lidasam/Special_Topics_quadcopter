@@ -94,12 +94,13 @@ Taking known good PID values from an identical configuration will get you close,
 
 
 > - 完成F450 機架組裝 
-> ![enter image description here](http://i.imgur.com/lrzWjfc.jpg)
-> - MultiWii 飛控韌體測試  了解PID控制理論 [飛控板Ref](https://oscarliang.com/build-arduino-shield-quadcopter-arduino/)<br><img src="http://i.imgur.com/J4MGQ3B.jpg" width="400" height="200" />
+> - <img src="http://i.imgur.com/lrzWjfc.jpg" width="360" height="200" />
+> - MultiWii 飛控韌體測試  了解PID控制理論 [飛控板Ref](https://oscarliang.com/build-arduino-shield-quadcopter-arduino/)<br><img src="http://i.imgur.com/J4MGQ3B.jpg" width="360" height="200" />
 > - PID設置 [Ref](http://www.multiwii.com/wiki/index.php?title=PID)
 > - 實驗:GY521(MPU6050)
-> - Config
-> ![enter image description here](https://walkera-fans.de/wp-content/uploads/2015/06/Walkera-Runner-250-MultiWii-1.png)
+> - Config<br><img src="https://walkera-fans.de/wp-content/uploads/2015/06/Walkera-Runner-250-MultiWii-1.png" width="360" height="200" />
+
+
 
 
 ----------
