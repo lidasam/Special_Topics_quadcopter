@@ -96,7 +96,7 @@ Taking known good PID values from an identical configuration will get you close,
 > - 完成F450 機架組裝 
 > ![enter image description here](http://i.imgur.com/lrzWjfc.jpg)
 > - MultiWii 飛控韌體測試  了解PID控制理論 [飛控板Ref](https://oscarliang.com/build-arduino-shield-quadcopter-arduino/) 
-  ![](http://i.imgur.com/J4MGQ3B.jpg =250x250) ![enter image description here](http://i.imgur.com/nJlzLha.jpg)
+  ![](http://i.imgur.com/J4MGQ3B.jpg) ![enter image description here](http://i.imgur.com/nJlzLha.jpg)
 > - PID設置 [Ref](http://www.multiwii.com/wiki/index.php?title=PID)
 > - 實驗:GY521(MPU6050)
 > - Config
