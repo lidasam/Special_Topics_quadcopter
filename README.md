@@ -169,7 +169,7 @@ index.html
 
 -------------
 ### TI sensortag cc2650感測器
-![enter image description here](http://43oh.com/wp-content/uploads/2015/06/CC2560_Sensortag-1024x706.jpg)
+<img src="https://camo.githubusercontent.com/74c17f32c97a9474218f616e2a765337f9627391/687474703a2f2f34336f682e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031352f30362f4343323536305f53656e736f727461672d31303234783730362e6a7067" alt="enter image description here" data-canonical-src="http://43oh.com/wp-content/uploads/2015/06/CC2560_Sensortag-1024x706.jpg" style="max-width: 44%;">
 備有感溫、IR測溫、濕度、測光、9軸陀螺儀等感測功能
 由藍芽連接至行動裝置進行數據監控，可將資料上傳至雲端多方監控。
 Android app使用 TI提供之
