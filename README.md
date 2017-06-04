@@ -169,6 +169,153 @@ index.html
 
 <!-- <img src="" width="360" height="200" />  -->
 
+### Q:感測器與數據整合介面之間通訊
+因為7688具備連網功能，使用網路來蒐集來自四軸上感測器資料也易於包裝整理，考慮http協議GET/POST方式由於header占用過多頻寬且包含過多不必要的資訊，因此想藉由同為TCP/IP之上的應用層—MQTT協定來傳輸資料，由於MQTT協定header僅有2bytes，以及硬體需求較低等優點，能夠降低發送接收端的硬體成本。
+
+<img src="https://goo.gl/3nRm0v" width="730"  />
+
+###### 圖片來源:http://www.hivemq.com/blog/how-to-get-started-with-mqtt
+
+
+MQTT實驗:
+> - ESP01為感測端，作為publisher，7688為broker兼subscriber
+> - 設置MQTT伺服器:使用開放原始碼的mosquitto
+> - 設置subscriber: npm install mqtt@1.7.0 --save
+> - 本實驗Topic:field_1/room_1/sensor_1
+
+#### I、Broker設置
+```
+# opkg update  
+# opkg install mosquitto mosquitto-client libmosquitto
+```
+
+#### II、Publisher設置
+使用開發板:ESP01
+<img src="http://i.imgur.com/vErMudW.jpg" width="180"/>
+###### 本程式改寫自[knolleary/pubsubclient函式庫範例](https://github.com/knolleary/pubsubclient/blob/master/examples/mqtt_esp8266/mqtt_esp8266.ino)
+發布本實驗之主題，內容為溫溼度資料(亂數產生)
+```
+#include <ESP8266WiFi.h>
+#include <PubSubClient.h>
+
+const char* ssid = "SSID";
+const char* password = "pwd";
+const char* mqtt_server = "broker IP";
+
+const char clientID[] = "Publisher";
+const char topic[] = "field_1/room_1/sensor_1";
+
+WiFiClient espClient;
+PubSubClient client(espClient);
+
+String msgStr = "";
+char msg[50];
+
+
+void setup() {
+  Serial.begin(115200);
+  setup_wifi();
+  client.setServer(mqtt_server, 1883);
+}
+
+void setup_wifi() {
+
+  delay(10);
+  // We start by connecting to a WiFi network
+  Serial.println();
+  Serial.print("Connecting to ");
+  Serial.println(ssid);
+
+  WiFi.begin(ssid, password);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+
+  Serial.println("");
+  Serial.println("WiFi connected");
+  Serial.println("IP address: ");
+  Serial.println(WiFi.localIP());
+}
+
+
+void reconnect() {
+  while (!client.connected()) {
+    if (client.connect(clientID)) {
+      Serial.println("connected");
+    } else {
+      Serial.print("failed, rc=");
+      Serial.print(client.state());
+      Serial.println(" try again in 5 seconds");
+      // Wait 5 seconds before retrying
+      delay(5000);
+    }
+  }
+}
+void loop() {
+
+  if (!client.connected()) {
+    reconnect();
+  }
+  client.loop();
+
+  msgStr = msgStr + "{\"temp\":" + (19 + random(10)) + ",\"humid\":" + 20 + "}";
+  Serial.println(msgStr);
+  msgStr.toCharArray(msg,25);
+  client.publish(topic, msg);
+  msgStr = "";
+ 
+  delay(1000);
+}
+
+```
+
+#### III、Subscriber設置
+
+```
+npm install mqtt --save  (不能使用，和7688所用的nodejs版本有衝突)
+```
+<img src="https://goo.gl/QHYlG3" width="780"/> 
+
+※最新版mqtt2.8.0套件需要node4.0.0版本，然而7688的韌體只提供0.12.7，故安裝舊版mqtt@1.7.0，實測可順利運行
+
+```
+npm install mqtt@1.7.0 --save
+```
+
+Subscriber程式:
+```
+var mqtt = require('mqtt');
+var opt = {
+  port:1883,
+  clientId: 'nodejs_subscriber'
+};
+
+                            //broker IP
+var client  = mqtt.connect('tcp://192.168.0.102',opt);
+
+client.on('connect', function () {
+  console.log('MQTT broker connected');
+  client.subscribe("field_1/room_1/sensor_1");
+});
+
+
+client.on('message', function (topic, msg) { 
+  console.log('topic: ' + topic + ' ，msg：' + msg.toString());
+});
+
+```
+
+#### IV、執行結果
+<img src="http://i.imgur.com/3YTBxqH.png" width="780"/> 
+
+成功訂閱該主題並取得溫溼度資料。
+
+
+
+
+
 -------------
 ### TI sensortag cc2650感測器
 <img src="http://43oh.com/wp-content/uploads/2015/06/CC2560_Sensortag-1024x706.jpg" height="360" /> <br>
@@ -230,3 +377,5 @@ APP
 
 其他
 > - dev.ti中Resource Explorer內sensortag CC2650資料已移除:可由網站下載相關資料
+
+
