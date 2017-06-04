@@ -110,7 +110,7 @@ Taking known good PID values from an identical configuration will get you close,
 > https://nodejs.org/api/http.html
 
 使用express模組來增加檔案存取的便利性，如以下範例code
-```
+```javascript
 var express = require('express');
 var app = express();
 
@@ -133,7 +133,7 @@ opkg update
 npm install express
 ```
 再用編輯器新增以下nodejs程式
-```
+```javascript
 // main.js
 var express = require("express");
 var app = express();
@@ -194,7 +194,7 @@ MQTT實驗:
 <img src="http://i.imgur.com/vErMudW.jpg" width="180"/>
 ###### 本程式改寫自[knolleary/pubsubclient函式庫範例](https://github.com/knolleary/pubsubclient/blob/master/examples/mqtt_esp8266/mqtt_esp8266.ino)
 發布本實驗之主題，內容為溫溼度資料(亂數產生)
-```
+```Arduino
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 
@@ -285,7 +285,8 @@ npm install mqtt@1.7.0 --save
 ```
 
 Subscriber程式:
-```
+
+```javascript
 var mqtt = require('mqtt');
 var opt = {
   port:1883,
