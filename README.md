@@ -379,4 +379,10 @@ APP
 其他
 > - dev.ti中Resource Explorer內sensortag CC2650資料已移除:可由網站下載相關資料
 
-
+---
+### APM v2.8 飛控及地面站 Mission Planner
+APM V2.8
+<br><img src="http://i.imgur.com/bb163Zl.png" height="450" /> 
+Mission Planner
+<br><img src="http://i.imgur.com/eLGZrQO.png" height="450" /> 
+[官方網站及下載](http://ardupilot.org/planner/docs/common-install-mission-planner.html)
