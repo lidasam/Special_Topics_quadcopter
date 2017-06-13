@@ -398,6 +398,8 @@ APP
 > - 電子變速器校準
 > - 飛行模式設定
 > - 失控保護
+<br><img src="http://www.efly98.com/cdb_efly98/attachments/month_1504/20150416_56af0cadbaadda7dd5f684ZXdhKBKsOH.jpg.thumb.jpg" height="350" />
+
 
 > 羅盤校準
 > 使用外接gps module M8N內羅盤
