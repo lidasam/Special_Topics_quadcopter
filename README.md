@@ -389,7 +389,7 @@ APP
 
 [官方網站及下載](http://ardupilot.org/planner/docs/common-install-mission-planner.html)
 (不可於安裝時連接APM，可能導致COM驅動程式安裝失敗，便須另外再安裝)
-##### 初始配置
+#### 初始配置
 幾項必須先進行校準:
 > - 機架型式(選X型即可)
 > - 羅盤校準
@@ -400,32 +400,34 @@ APP
 > - 失控保護
 
 > 羅盤校準
-使用外接gps module M8N內羅盤
-(經多次嘗試APM V2.8應無內建羅盤，僅有加速度計)
-校準畫面(使用網路圖源):
+> 使用外接gps module M8N內羅盤
+>(經多次嘗試APM V2.8應無內建羅盤，僅有加速度計)
+>校準畫面(使用網路圖源):
 <br><img src="http://i.imgur.com/pCMYBa3.png" height="350" /> 
 
 > 遙控器校準
-示意圖
-校準訊號上下限即可
+>示意圖
+>校準訊號上下限即可
 <br><img src="https://i2.read01.com/uploads/0EZZe6IDYE.jpg" height="350" /> 
 
 
 
->電子變速器校準(ESC)
+>電子變速器校準(ESC)[其他方法](http://ardupilot.org/copter/docs/esc-calibration.html)
 <br><img src="http://i.imgur.com/sCUCU98.png" height="350" /> 
-[其他方法](http://ardupilot.org/copter/docs/esc-calibration.html)
+
 
 >飛行模式
 1.Stabilize 2.Loiter 3.RTL(Return to launch)
-[模式說明](https://www.youtube.com/watch?v=uJga3tq8ySs&spfreload=10)
+>[模式說明](https://www.youtube.com/watch?v=uJga3tq8ySs&spfreload=10)
 
 ### Input&Output 接腳
 Input--接收器
 <br><img src="http://i.imgur.com/Q9vJ59j.png"  /> 
+
 Output--ESC(4馬達)
 (於備用Output針腳+ -端接入電源,jp1使與Input端通電)
 <br><img src="http://i.imgur.com/vrP4VH0.png"  /> 
+
 
 
 
