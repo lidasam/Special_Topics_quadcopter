@@ -326,17 +326,17 @@ client.on('message', function (topic, msg) {
 ### QoS - MQTT訊息品質設定
 
 <img src="http://i.imgur.com/6ewuATw.png" width="780"/>
-- QoS 0
-- 單純由Publisher發布資料，並不保證資料會送達Broker，MQTT屬於應用層的通訊協定，有可能因為更底層TCP/IP斷線問題或者實體層的錯誤發生導致訊息丟失。
-- 適合感測器的場合使用，因為丟失一小部分資料，反正下一組資料馬上就會送達所以不會有太大的影響。
-- 本次實驗使用QoS 0 (Pubsubclient函式庫只能發布QoS 0 但可以訂閱QoS 0和QoS 1的訊息) 
+* QoS 0
+* 單純由Publisher發布資料，並不保證資料會送達Broker，MQTT屬於應用層的通訊協定，有可能因為更底層TCP/IP斷線問題或者實體層的錯誤發生導致訊息丟失。
+* 適合感測器的場合使用，因為丟失一小部分資料，反正下一組資料馬上就會送達所以不會有太大的影響。
+* 本次實驗使用QoS 0 (Pubsubclient函式庫只能發布QoS 0 但可以訂閱QoS 0和QoS 1的訊息) 
 <img src="http://i.imgur.com/weoSWvN.png" width="780"/>
-- QoS 1
-- Broker會回傳ACK給Publisher，確保資料到達，但不保證Subscriber會收到資料。
+* QoS 1
+* Broker會回傳ACK給Publisher，確保資料到達，但不保證Subscriber會收到資料。
 <img src="http://i.imgur.com/ju4Bvau.png" width="780"/>
-- QoS 2
-- 會傳送Publish received與Publish release來回應，可以確保Subscriber收到資料。
-- 適合用在計費系統的應用。
+* QoS 2
+* 會傳送Publish received與Publish release來回應，可以確保Subscriber收到資料。
+* 適合用在計費系統的應用。
 
 
 
