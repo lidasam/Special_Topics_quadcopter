@@ -124,8 +124,15 @@ express提供方便的api來幫助撰寫nodejs
 > Refernce :http://expressjs.com/en/4x/api.html
 
 ### Q:架設網頁伺服器之環境
-使用Linux環境，考量價格與開發板體積，也沒有使用圖形化介面的需求，排除較熱門的Raspberry Pi系列的SoC開發板，選用LinkIt Smart 7688來架設伺服器，使用的作業系統是OpenWrt
+使用Linux環境，考量價格與開發板體積，也沒有使用圖形化介面的需求，排除較熱門的Raspberry Pi系列的SoC開發板，選用LinkIt Smart 7688來架設伺服器，使用的作業系統是OpenWrt。
+
+<img src="https://iamblue.gitbooks.io/linkit-smart-nodejs/content/zh-TW/intro/pwr.png" width="750"  />
+
+<img src="http://i.imgur.com/DxBmyLi.png" width="750"  />
+
+7688是聯發科技創意實驗室設計的開源硬體的物連網開發板，官網提供各種資料包括電路圖、Getting Started文件、各版本韌體等等。<br>
 ![enter image description here](http://i.imgur.com/Vl19Fx9.png)
+
 
 **以下測試express基本的架設方式**
 ```
@@ -192,6 +199,9 @@ MQTT實驗:
 #### II、Publisher設置
 使用開發板:ESP01
 <img src="http://i.imgur.com/vErMudW.jpg" width="180"/>
+<br>因為ESP01不具備燒錄晶片，而且要把GPIO0接地才能進入flash mode，所以自己用麵包板把接線佈好，方便開發。<br><img src="http://i.imgur.com/F7GNDus.jpg" width="250"/>
+
+
 ###### 本程式改寫自[knolleary/pubsubclient函式庫範例](https://github.com/knolleary/pubsubclient/blob/master/examples/mqtt_esp8266/mqtt_esp8266.ino)
 發布本實驗之主題，內容為溫溼度資料(亂數產生)
 ```Arduino
@@ -313,6 +323,24 @@ client.on('message', function (topic, msg) {
 
 成功訂閱該主題並取得溫溼度資料。
 
+### QoS - MQTT訊息品質設定
+
+<img src="http://www.hivemq.com/wp-content/uploads/publish_qos0_flow.png
+" width="780"/>
+- QoS 0
+- 單純由Publisher發布資料，並不保證資料會送達Broker，MQTT屬於應用層的通訊協定，有可能因為更底層TCP/IP斷線問題或者實體層的錯誤發生導致訊息丟失。
+- 適合感測器的場合使用，因為丟失一小部分資料，反正下一組資料馬上就會送達所以不會有太大的影響。
+- 本次實驗使用QoS 0 (Pubsubclient函式庫只能發布QoS 0 但可以訂閱QoS 0和QoS 1的訊息) 
+<img src="http://www.hivemq.com/wp-content/uploads/publish_qos1_flow.png
+" width="780"/>
+- QoS 1
+- Broker會回傳ACK給Publisher，確保資料到達，但不保證Subscriber會收到資料。
+<img src="http://www.hivemq.com/wp-content/uploads/publish_qos2_flow.png
+" width="780"/>
+- QoS 2
+- 會傳送Publish received與Publish release來回應，可以確保Subscriber收到資料。
+- 適合用在計費系統的應用。
+
 
 
 
@@ -378,62 +406,5 @@ APP
 
 其他
 > - dev.ti中Resource Explorer內sensortag CC2650資料已移除:可由網站下載相關資料
-
----
-### APM v2.8 飛控及地面站 Mission Planner
-> - APM V2.8
-<br><img src="http://i.imgur.com/bb163Zl.png" height="450" /> 
-
-> - Mission Planner
-<br><img src="http://i.imgur.com/eLGZrQO.png" height="350" /> 
-
-[官方網站及下載](http://ardupilot.org/planner/docs/common-install-mission-planner.html)
-(不可於安裝時連接APM，可能導致COM驅動程式安裝失敗，便須另外再安裝)
-#### 初始配置
-幾項必須先進行校準:
-> - 機架型式(選X型即可)
-> - 羅盤校準
-> - 加速度計較準
-> - 遙控器校準
-> - 電子變速器校準
-> - 飛行模式設定
-> - 失控保護
-<br><img src="http://www.efly98.com/cdb_efly98/attachments/month_1504/20150416_56af0cadbaadda7dd5f684ZXdhKBKsOH.jpg.thumb.jpg" height="350" />
-
-
-> 羅盤校準
-> 使用外接gps module M8N內羅盤
->(經多次嘗試APM V2.8應無內建羅盤，僅有加速度計)
->校準畫面(使用網路圖源):
-<br><img src="http://i.imgur.com/pCMYBa3.png" height="350" /> 
-
-> 遙控器校準
->示意圖
->校準訊號上下限即可
-<br><img src="https://i2.read01.com/uploads/0EZZe6IDYE.jpg" height="350" /> 
-
-
-
->電子變速器校準(ESC)[其他方法](http://ardupilot.org/copter/docs/esc-calibration.html)
-<br><img src="http://i.imgur.com/sCUCU98.png" height="350" /> 
-
-
->飛行模式
-1.Stabilize 2.Loiter 3.RTL(Return to launch)
->[模式說明](https://www.youtube.com/watch?v=uJga3tq8ySs&spfreload=10)
-
-### Input&Output 接腳
-Input--接收器
-<br><img src="http://i.imgur.com/Q9vJ59j.png"  /> 
-
-Output--ESC(4馬達)
-(於備用Output針腳+ -端接入電源,jp1使與Input端通電)
-<br><img src="http://i.imgur.com/vrP4VH0.png"  /> 
-
-
-
-
-
-
 
 
